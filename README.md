@@ -4,23 +4,6 @@ Implementação em C do algoritmo de **elemento máximo de um vetor** usando a e
 
 ---
 
-## Sumário
-
-- [Descrição do Problema](#descrição-do-problema)
-- [Conceito: Árvore Binária Balanceada](#conceito-árvore-binária-balanceada)
-- [Teorema de Brent](#teorema-de-brent)
-- [Versão 1 — Árvore por Rodadas (Paralela Explícita)](#versão-1--árvore-por-rodadas-paralela-explícita)
-- [Versão 2 — Redução OpenMP (reduction clause)](#versão-2--redução-openmp-reduction-clause)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Dependências](#dependências)
-- [Como Compilar](#como-compilar)
-- [Como Executar](#como-executar)
-- [Saída Esperada](#saída-esperada)
-- [Análise de Complexidade](#análise-de-complexidade)
-- [Comparação entre as Versões](#comparação-entre-as-versões)
-
----
-
 ## Descrição do Problema
 
 Dado um vetor de `N` inteiros, encontrar o **elemento máximo** de forma paralela, utilizando a estrutura de árvore binária balanceada e o modelo de custo do Teorema de Brent para justificar a eficiência da paralelização.
@@ -179,21 +162,6 @@ T_p  ≈  N/p  +  log(p)
 
 ---
 
-## Dependências
-
-| Ferramenta | Versão mínima | Descrição |
-|------------|---------------|-----------|
-| GCC        | 4.9+          | Compilador C com suporte a OpenMP |
-| OpenMP     | 3.1+          | API de paralelismo de memória compartilhada |
-
-Para verificar se o suporte a OpenMP está disponível:
-
-```bash
-echo '#include <omp.h>' | gcc -fopenmp -x c - -o /dev/null && echo "OpenMP OK"
-```
-
----
-
 ## Como Compilar
 
 ```bash
@@ -262,8 +230,6 @@ OMP_NUM_THREADS=4 ./maximo_openmp
     p=8 -> T_p <= 131090 comparacoes logicas
 =======================================================
 ```
-
-> Os tempos variam conforme o hardware. O campo `OK` confirma que o resultado é igual ao máximo sequencial de referência.
 
 ---
 
