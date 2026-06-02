@@ -1,35 +1,6 @@
 /*
  * Algoritmo de Máximo com Árvore Binária Balanceada e OpenMP
  * Teorema de Brent — Duas Versões
- *
- * Compilar com:
- *   gcc -O2 -fopenmp -o maximo_openmp maximo_openmp.c
- *
- * Executar:
- *   ./maximo_openmp
- *
- * -------------------------------------------------------
- * CONCEITO: Árvore Binária Balanceada
- * -------------------------------------------------------
- * A ideia é comparar os elementos em "rodadas", como num
- * torneio. Em cada rodada, pares de elementos são comparados
- * e apenas o maior "sobe". Com N elementos:
- *   - Rodada 1: N/2 comparações
- *   - Rodada 2: N/4 comparações
- *   - ...
- *   - Total: O(log N) rodadas, O(N) trabalho
- *
- * -------------------------------------------------------
- * TEOREMA DE BRENT
- * -------------------------------------------------------
- * Com p processadores e T_infinito passos críticos:
- *   T_p <= T_infinito + (T_1 - T_infinito) / p
- *
- * Para N elementos e p processadores:
- *   T_infinito = O(log N)   (profundidade da árvore)
- *   T_1        = O(N)       (trabalho total)
- *   T_p        <= log(N) + (N - log(N)) / p
- *
  * -------------------------------------------------------
  * VERSÃO 1 — Paralela por Nível (top-down por rodadas)
  * -------------------------------------------------------
